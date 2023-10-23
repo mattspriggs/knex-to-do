@@ -8,7 +8,15 @@ export function getTodos() {
 }
 
 // Your DB functions go here
+export function deleteTask(id) {
+  return db('todos').where('id', id).del()
+}
+
+export function addTask(task) {
+  const newTask = { task: task }
+  return db('todos').insert(newTask)
+}
+
 export function close() {
   db.destroy()
 }
-
