@@ -27,6 +27,18 @@ export async function add(task) {
     await db.addTask(task)
   } catch (error) {
     console.log(error.message)
+  } finally {
+    db.close()
+  }
+}
+
+export async function update(id, task) {
+  try {
+    await db.updateTask(id, task)
+  } catch (error) {
+    console.log(error.message)
+  } finally {
+    db.close()
   }
 }
 

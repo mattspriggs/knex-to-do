@@ -17,6 +17,10 @@ export function addTask(task) {
   return db('todos').insert(newTask)
 }
 
+export function updateTask(id, task) {
+  const updatedTask = { task: task }
+  return db('todos').where('id', id).update(updatedTask)
+}
 export function close() {
   db.destroy()
 }
